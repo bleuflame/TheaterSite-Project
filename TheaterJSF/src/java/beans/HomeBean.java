@@ -10,7 +10,6 @@ package beans;
  * @author JamesEich
  */
 import ejb.theaterEJB;
-import entity.Author;
 import entity.Theater;
 import java.util.List;
 import java.util.Map;
@@ -39,10 +38,19 @@ public class HomeBean{
     
 
     
-    //public List<Theater> findTheaters(String zip){
-      //  this.zip = zip;
-        //return theaterEJB.findTheaters(zip);
-   // }
+    public String addZip(String zip){
+        this.zip = zip;
+        return "Theaters.xhtml";
+    }
+    
+    //Fetches the theaters with the user given zip code
+    public List<Theater> getTheatersList()
+    {
+        if (theater != null)
+           return theaterEJB.getTheaters(zip);
+        else
+           return null;
+    }
     
     
 }
