@@ -26,6 +26,13 @@ public class theaterEJB {
     }
     
         
+    //Fetches the theaters with the user given zipcode
+    public List<Theater> getTheaters(String zip)
+    {
+        return em.createNamedQuery("Theater.findByZip", Theater.class)
+                .setParameter("zip", zip).getResultList();
+    }
+    
     //public List<Theater> findTheaters(String zip){
     //    return em.createNamedQuery("Theater.findByZip", Theater.class).setParameter("zip", zip).getResultList();
     //}
