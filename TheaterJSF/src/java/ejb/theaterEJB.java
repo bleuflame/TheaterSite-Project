@@ -5,6 +5,8 @@
  */
 package ejb;
 
+import entity.Theater;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,8 +25,11 @@ public class theaterEJB {
         em.persist(object);
     }
     
-    
-    
+        
+    //public List<Theater> findTheaters(String zip){
+    //    return em.createNamedQuery("Theater.findByZip", Theater.class).setParameter("zip", zip).getResultList();
+    //}
+
     //Currently does nothing but persist. 
     //Need to add functions here for JSF to query data from the database
     

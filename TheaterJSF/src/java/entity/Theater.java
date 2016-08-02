@@ -35,7 +35,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Theater.findById", query = "SELECT a FROM Theater a WHERE a.theaterId = :theaterId")})
 
 public class Theater implements Serializable {
-    private static final long serialVersionUID = 1L;
+  //  private static final long serialVersionUID = 1L;
 //-----
     private Set<Theater_Movies> theater_Movies = new HashSet<Theater_Movies>(0);
 

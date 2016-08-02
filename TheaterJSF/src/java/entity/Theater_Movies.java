@@ -41,7 +41,7 @@ import javax.validation.constraints.Size;
 //Fix later
 
 public class Theater_Movies implements Serializable {
-    private static final long serialVersionUID = 1L;
+   // private static final long serialVersionUID = 1L;
 //-----
     
     /*
