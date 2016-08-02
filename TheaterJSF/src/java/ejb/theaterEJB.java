@@ -5,9 +5,6 @@
  */
 package ejb;
 
-import entity.Theater;
-import entity.Theater_Movies;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,6 +25,11 @@ public class theaterEJB {
     
     
     
+    //Currently does nothing but persist. 
+    //Need to add functions here for JSF to query data from the database
+    
+    //Also need to work on DOMparsing. Gather list of movies by imdbId, put external Data information 
+        //in movies List, use data in JSF
     
     /*
 
