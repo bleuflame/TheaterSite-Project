@@ -119,13 +119,6 @@ public class Theater implements Serializable {
     
     
     
-    
-    
-    
-    public void getMovies(){
-        
-    }
-    
   
     
     @Override
