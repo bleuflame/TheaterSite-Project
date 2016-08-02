@@ -59,6 +59,7 @@ public class DOMparsing{
                 movie.setPlot(element.getAttribute("plot"));
                 movie.setPoster(element.getAttribute("poster"));
                 movie.setImdbrating(element.getAttribute("imdbRating"));
+                movie.setImdbID(element.getAttribute("imdbID"));
             }
             movielist.add(movie);
         }
@@ -71,15 +72,16 @@ public class DOMparsing{
     return movielist;
   }
   
-      public static void main(String[] args) {
+     // public static void main(String[] args) {
         
-         DOMparsing parser = new DOMparsing();
-         List<Movie> list = parser.parseMovies();
+        //Use this to make a Movie list
+         //DOMparsing parser = new DOMparsing();
+         //List<Movie> list = parser.parseMovies();
          
-         System.out.println("Titles: ");
+         /*System.out.println("Titles: ");
          for (Movie order : list)
-             System.out.println(order.getPlot()); 
-    }
+             System.out.println(order.getPlot()); */
+   // }
       
       
 }

@@ -18,6 +18,7 @@ public class Movie {
     private String plot;
     private String poster;
     private String imdbrating;
+    private String imdbID;
     
     //Constructor
 
@@ -30,7 +31,7 @@ public class Movie {
         this.genre = type;
     }
 
-    public Movie(String title, String runtime, String genre, String rating, String plot, String poster, String imbdrating) {
+    public Movie(String title, String runtime, String genre, String rating, String plot, String poster, String imbdrating, String imdbID) {
         this.title = title;
         this.runtime = runtime;
         this.genre = genre;
@@ -38,6 +39,7 @@ public class Movie {
         this.plot = plot;
         this.poster = poster;
         this.imdbrating = imbdrating;
+        this.imdbID = imdbID;
     }
 
   
@@ -98,6 +100,14 @@ public class Movie {
 
     public void setImdbrating(String imdbrating) {
         this.imdbrating = imdbrating;
+    }
+
+    public String getImdbID() {
+        return imdbID;
+    }
+
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
     }
     
     
