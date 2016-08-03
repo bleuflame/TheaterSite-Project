@@ -57,7 +57,7 @@ public class DOMparsing{
                 movie.setPlot(element.getAttribute("plot"));
                 movie.setPoster(element.getAttribute("poster"));
                 movie.setImdbrating(element.getAttribute("imdbRating"));
-                movie.setImdbID(element.getAttribute("imdbID"));
+                movie.setImdbID(element.getAttribute("imdbID")); //Not needed to display
             }
             movielist.add(movie);
         }
