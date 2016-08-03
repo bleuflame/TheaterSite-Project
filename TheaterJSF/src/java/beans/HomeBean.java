@@ -35,8 +35,30 @@ public class HomeBean{
      */
     public HomeBean() {
     }
-    
 
+    public theaterEJB getTheaterEJB() {
+        return theaterEJB;
+    }
+
+    public void setTheaterEJB(theaterEJB theaterEJB) {
+        this.theaterEJB = theaterEJB;
+    }
+
+    public Theater getTheater() {
+        return theater;
+    }
+
+    public void setTheater(Theater theater) {
+        this.theater = theater;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
     
     public String addZip(String zip){
         this.zip = zip;

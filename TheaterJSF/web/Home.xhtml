@@ -11,21 +11,20 @@
    
     <h:body>
         <ui:composition template="./Template/TheaterTemplate.xhtml">
-            <ui:define name="top">
-                
-            </ui:define>
-
+            <ui:define name="top"/>
+            
             <ui:define name="left">
-                <h:graphicImage value="Resources/images/WebsiteFlowChart.PNG" />
+                <h:graphicImage value="Resources/images/WebsiteFlowChart.PNG" height="500" width="700"/>
             </ui:define>
 
             <ui:define name="content">
                 <h1>Enter your zip code!</h1>
                 <h:form>
-                    <h:inputText maxlength="5">
+                    <h:inputText maxlength="5" value="#{homeBean.zip}">
                         <f:passThroughAttribute name="placeholder" value="Enter Zip Code" />
                         <f:validator validatorId="beans.ZipValidator" />
-                </h:inputText>
+                    </h:inputText>
+                    <h:commandButton id="ZipButton" action="Theaters.xhtml" value="Next" />
                 </h:form>
             </ui:define>
             
