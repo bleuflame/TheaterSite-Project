@@ -29,6 +29,7 @@ public class theaterEJB {
     //Fetches the theaters with the user given zipcode
     public List<Theater> getTheaters(String zip)
     {
+        System.out.println("Getlist " + zip);
         return em.createNamedQuery("Theater.findByZip", Theater.class)
                 .setParameter("zip", zip).getResultList();
     }

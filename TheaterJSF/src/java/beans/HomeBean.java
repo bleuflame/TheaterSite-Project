@@ -68,7 +68,9 @@ public class HomeBean{
     //Fetches the theaters with the user given zip code
     public List<Theater> getTheatersList()
     {
-        if (theater != null)
+       System.out.println("Theaterlist " + zip);
+
+        if (zip != null)
            return theaterEJB.getTheaters(zip);
         else
            return null;

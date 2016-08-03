@@ -54,7 +54,7 @@ public class Theater implements Serializable {
     @Size(max = 5)
     @NotNull
     @Column(name="zip")
-    private int zip;
+    private String zip;
 
     @Size(max = 100)
     @NotNull
@@ -100,11 +100,11 @@ public class Theater implements Serializable {
         this.theater_name = theater_name;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(int zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
