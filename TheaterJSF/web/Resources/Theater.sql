@@ -39,7 +39,9 @@ insert into Theater (theater_name, zip, address, theaterId) values
 ('Bright Cinemas', '75080', '8675 Three o Nine Alley, Richardson TX, ', '206');
 insert into Theater (theater_name, zip, address, theaterId) values
 ('Cinemark', '75070', '909 Haunted Hill Avenue, Richardson TX, ', '207');
+--**/
 
+/* Input what times movies play at certain theaters here */
 insert into Theater_Movies (imdbID, theaterID, movieTime)
 values ('tt2277860', '205', '2:45pm');
 --**/
