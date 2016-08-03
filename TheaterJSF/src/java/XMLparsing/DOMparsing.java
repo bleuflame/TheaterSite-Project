@@ -30,15 +30,22 @@ public class DOMparsing{
     
   public static void parseMovies(List<String> imdbtags){
 
+      
+      
+      //imdbtags has all the movies for that theater
     List<Movie> movielist = new ArrayList<>();
     
     
-
     try {
+    	
+        
+        for (String imdbtag : imdbtags) {
+			System.out.println(imdbtag);
+	String url = "http://www.omdbapi.com/?i=" + imdbtag + "&plot=full&r=xml";
       
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
-        Document document = db.parse(new URL("http://www.omdbapi.com/?i=tt0246578&plot=full&r=xml").openStream());
+        Document document = db.parse(new URL(url).openStream());
       
         
       // Getting the movie node
@@ -66,8 +73,11 @@ public class DOMparsing{
             movielist.add(movie);
         }
 
-      }
-
+      }//for loop
+        
+        
+        
+    }
     catch (SAXException | IOException | ParserConfigurationException e) {
       e.printStackTrace();
     }
