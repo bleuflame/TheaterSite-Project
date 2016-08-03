@@ -26,9 +26,13 @@ import java.util.List;
 
 public class DOMparsing{
 
-  public List<Movie> parseMovies(){
+    
+    
+  public static void parseMovies(List<String> imdbtags){
 
     List<Movie> movielist = new ArrayList<>();
+    
+    
 
     try {
       
@@ -67,7 +71,7 @@ public class DOMparsing{
     catch (SAXException | IOException | ParserConfigurationException e) {
       e.printStackTrace();
     }
-    return movielist;
+   // return movielist;
   }
   
      // public static void main(String[] args) {

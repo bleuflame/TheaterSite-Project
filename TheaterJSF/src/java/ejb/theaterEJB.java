@@ -5,6 +5,8 @@
  */
 package ejb;
 
+import XMLparsing.DOMparsing;
+import XMLparsing.Movie;
 import entity.Theater;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -33,6 +35,43 @@ public class theaterEJB {
         return em.createNamedQuery("Theater.findByZip", Theater.class)
                 .setParameter("zip", zip).getResultList();
     }
+    
+    
+    public void searchMovies(String theaterId){
+        
+        
+        List<String> imdbtags = (List<String>)em.createNativeQuery("SELECT DISTINCT imdbId FROM Theater_Movies WHERE theaterId = (?1)")
+                      .setParameter(1, theaterId)
+                      .getResultList(); 
+        
+        DOMparsing.parseMovies(imdbtags);
+        
+        
+    }
+    
+    
+    
+    /*
+    List<Customer> customers = (List<Customer>)em.createNativeQuery
+                              
+
+
+            ("SELECT * FROM customers", jpqlexample.entities.Customer.class)
+                              .getResultList(); 
+        Iterator i = customers.iterator();
+        Customer cust;
+        out.println("Customers: " + "<br/>");
+        while (i.hasNext()) {
+            cust = (Customer) i.next();
+            out.println(cust.getCust_name() +"<br/>");
+        }
+    
+    */
+    
+    
+    
+    
+    
     
     //public List<Theater> findTheaters(String zip){
     //    return em.createNamedQuery("Theater.findByZip", Theater.class).setParameter("zip", zip).getResultList();
@@ -64,4 +103,8 @@ public class theaterEJB {
                 .setParameter("authorId", authorId)
                 .getResultList();
     }*/
+
+    public List<Movie> getMovies(String zip) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

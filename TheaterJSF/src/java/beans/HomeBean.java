@@ -9,6 +9,7 @@ package beans;
  *
  * @author JamesEich
  */
+import XMLparsing.Movie;
 import ejb.theaterEJB;
 import entity.Theater;
 import java.util.List;
@@ -29,6 +30,7 @@ public class HomeBean{
     private theaterEJB theaterEJB;
     private Theater theater;
     private String zip;
+    private String theaterId;
     
     /**
      * Creates a new instance of MainPageBean
@@ -59,6 +61,24 @@ public class HomeBean{
     public void setZip(String zip) {
         this.zip = zip;
     }
+
+    public String getTheaterId() {
+        return theaterId;
+    }
+
+    public void setTheaterId(String theaterId) {
+        this.theaterId = theaterId;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
     
     public String addZip(String zip){
         this.zip = zip;
@@ -75,6 +95,15 @@ public class HomeBean{
         else
            return null;
     }
+    
+    public List<Movie> getMoviesList(){
+        if (zip != null)
+           return theaterEJB.getMovies(theaterId);
+        else
+           return null;
+    }
+    
+    
     
     
 }
