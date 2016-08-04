@@ -18,7 +18,7 @@ public class Movie {
     private String plot;
     private String poster;
     private String imdbrating;
-    private String imdbID;
+    private String imdbId;
     
     //Constructor
 
@@ -39,7 +39,7 @@ public class Movie {
         this.plot = plot;
         this.poster = poster;
         this.imdbrating = imbdrating;
-        this.imdbID = imdbID;
+        this.imdbId = imdbID;
     }
 
   
@@ -102,12 +102,12 @@ public class Movie {
         this.imdbrating = imdbrating;
     }
 
-    public String getImdbID() {
-        return imdbID;
+    public String getImdbId() {
+        return imdbId;
     }
 
-    public void setImdbID(String imdbID) {
-        this.imdbID = imdbID;
+    public void setImdbId(String imdbId) {
+        this.imdbId = imdbId;
     }
     
     
