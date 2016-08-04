@@ -28,28 +28,27 @@ public class DOMparsing{
 
     
     
-  public static void parseMovies(List<String> imdbtags){
+    public static List<Movie> parseMovies(List<String> imdbtags){
 
       
       
       //imdbtags has all the movies for that theater
-    List<Movie> movielist = new ArrayList<>();
-    
-    
-    try {
-    	
-        
-        for (String imdbtag : imdbtags) {
-			System.out.println(imdbtag);
-	String url = "http://www.omdbapi.com/?i=" + imdbtag + "&plot=full&r=xml";
-      
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document document = db.parse(new URL(url).openStream());
-      
-        
-      // Getting the movie node
-      NodeList moviesNode = document.getElementsByTagName("movie");
+        List<Movie> movielist = new ArrayList<>();
+
+
+        try {
+
+
+            for (String imdbtag : imdbtags) {
+                String url = "http://www.omdbapi.com/?i=" + imdbtag + "&plot=full&r=xml";
+
+                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                Document document = db.parse(new URL(url).openStream());
+
+
+              // Getting the movie node
+                NodeList moviesNode = document.getElementsByTagName("movie");
 
 
         for(int x = 0; x < moviesNode.getLength(); x++)
