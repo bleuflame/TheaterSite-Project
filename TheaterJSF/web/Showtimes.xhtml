@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Movies for a theater</title>
         <style type="text/css">
@@ -47,12 +48,16 @@
                   <f:facet name="header">
                     <h:outputText value="Times"/>
                   </f:facet>
-                  <h:selectOneMenu value="selectedTime">
-                      <f:selectItems value="#{homeBean.getTimesList(movie.imdbId)}" />
-                  </h:selectOneMenu>
-                    <h:commandButton id="CheckoutButton" action="Checkout.xhtml" value="Select Time" />
-                        <f:param name="m.ovie.imdbId" value="#{movie.imdbId}" />
-
+                    <ul>
+                        <ui:repeat value="#{homeBean.getTimesList(movie.imdbId)}" var="times">
+                            <li>
+                                <h:link value="#{times}" outcome="Checkout.xhtml">
+                                    <f:param name="timeID" value="#{times}" />
+                                    <f:param name="movieID" value="#{movie.title}" />
+                                </h:link>
+                            </li>
+                        </ui:repeat>
+                    </ul>
                 </h:column>
                     
                 </h:dataTable>
