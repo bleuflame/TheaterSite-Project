@@ -1,13 +1,45 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Showtimes</title>
+        <title>Movies for a theater</title>
+        <style type="text/css">
+         table.movies td {
+             padding: 5px;
+             text-align: left;
+             font-family: Arial, Verdana, sans-serif;
+             border: 1px solid #000; 
+             background-color: #A4FFFF;    
+             color: #BB0000;    
+             border-bottom: 1px solid #000;
+         }   
+        </style>
+        <c:set target="#{homeBean}" property="theaterId" value="#{param.theID}" />
+            Theater ID you selected #{homeBean.theaterId}
     </h:head>
     <h:body>
-        Theater ID you selected #{param.theID}
-        
+        <f:view>
+            <h:form>
+                <h:dataTable styleClass="movies"
+                             value="#{homeBean.moviesList}" var="movie">
+                <h:column>
+                  <f:facet name="header">
+                    <h:outputText value="Title"/>
+                  </f:facet>
+                  <h:outputText value="#{movie.title}"/>
+                </h:column>
+                <h:column>
+                  <f:facet name="header">
+                    <h:outputText value="Plot"/>
+                  </f:facet>
+                  <h:outputText value="#{movie.plot}"/>
+                </h:column> 
+                </h:dataTable>
+
+            </h:form>
+        </f:view>
     </h:body>
 </html>
-

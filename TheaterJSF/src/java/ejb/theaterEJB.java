@@ -37,14 +37,14 @@ public class theaterEJB {
     }
     
     
-    public void searchMovies(String theaterId){
+    public List<Movie> searchMovies(String theaterId){
         
         
         List<String> imdbtags = (List<String>)em.createNativeQuery("SELECT DISTINCT imdbId FROM Theater_Movies WHERE theaterId = (?1)")
                       .setParameter(1, theaterId)
                       .getResultList(); 
         
-        DOMparsing.parseMovies(imdbtags);
+        return DOMparsing.parseMovies(imdbtags);
         
         
     }

@@ -97,13 +97,12 @@ public class HomeBean{
     }
     
     public List<Movie> getMoviesList(){
-        if (theater != null){
-            System.out.println("Movie list for " + theater.getTheaterId());
-           return theaterEJB.getMovies(theater.getTheaterId());
+        if (theaterId != null){
+            System.out.println("Movie list for " + theaterId);
+           return theaterEJB.searchMovies(theaterId);
         }
         else{
             System.out.println("Movie list for " + "null");
-
             return null;
         }
     }
