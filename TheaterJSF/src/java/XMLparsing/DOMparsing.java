@@ -80,7 +80,8 @@ public class DOMparsing{
     catch (SAXException | IOException | ParserConfigurationException e) {
       e.printStackTrace();
     }
-   // return movielist;
+
+        return movielist;
   }
   
      // public static void main(String[] args) {
