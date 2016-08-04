@@ -33,10 +33,30 @@
                 </h:column>
                 <h:column>
                   <f:facet name="header">
+                    <h:outputText value="Poster"/>
+                  </f:facet>
+                <h:graphicImage url="#{movie.poster}" width="150" height="220" />
+                </h:column>
+                <h:column>
+                  <f:facet name="header">
                     <h:outputText value="Plot"/>
                   </f:facet>
                   <h:outputText value="#{movie.plot}"/>
                 </h:column> 
+                
+                <h:column>
+                  <f:facet name="header">
+                    <h:outputText value="Times"/>
+                  </f:facet>
+                  <h:selectOneMenu value="selectedTime">
+                      <f:selectItems value="#{homeBean.getTimesList(movie.imdbId)}" />
+                  </h:selectOneMenu>
+                     <h:commandButton value="Select Time"                                  
+                          action="Checkout.xhtml"> 
+                    <f:param name="selectedTime" value="#{homeBean.selectedTime}" />
+                
+                </h:column>     
+                    
                 </h:dataTable>
 
             </h:form>
