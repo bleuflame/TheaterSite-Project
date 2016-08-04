@@ -46,7 +46,6 @@ public class theaterEJB {
         
         return DOMparsing.parseMovies(imdbtags);
         
-        
     }
     
     
@@ -104,7 +103,9 @@ public class theaterEJB {
                 .getResultList();
     }*/
 
-    public List<Movie> getMovies(String zip) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<String> getMovieTimes(String theaterId, String imdbId) {
+        return (List<String>)em.createNativeQuery("SELECT movieTime FROM Theater_Movies WHERE theaterId = (?1) AND imdbId = (?2)")
+                      .setParameter(1, theaterId).setParameter(2, imdbId)
+                      .getResultList(); 
     }
 }

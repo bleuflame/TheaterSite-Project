@@ -31,6 +31,8 @@ public class HomeBean{
     private Theater theater;
     private String zip;
     private String theaterId;
+    private String selectedTime; 
+    
     
     /**
      * Creates a new instance of MainPageBean
@@ -69,6 +71,14 @@ public class HomeBean{
     public void setTheaterId(String theaterId) {
         this.theaterId = theaterId;
     }
+
+    public String getSelectedTime() {
+        return selectedTime;
+    }
+
+    public void setSelectedTime(String selectedTime) {
+        this.selectedTime = selectedTime;
+    }
     
     
     
@@ -100,6 +110,17 @@ public class HomeBean{
         if (theaterId != null){
             System.out.println("Movie list for " + theaterId);
            return theaterEJB.searchMovies(theaterId);
+        }
+        else{
+            System.out.println("Movie list for " + "null");
+            return null;
+        }
+    }
+    
+    public List<String> getTimesList(String imdbId){
+        if ((theaterId != null)&&(imdbId != null)){
+            System.out.println("Movie times for movie " + imdbId + " at " + theaterId);
+           return theaterEJB.getMovieTimes(theaterId, imdbId);
         }
         else{
             System.out.println("Movie list for " + "null");
