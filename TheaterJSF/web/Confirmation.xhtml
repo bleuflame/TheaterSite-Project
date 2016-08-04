@@ -17,7 +17,12 @@
 
             <ui:define name="content">
                 <h1>Is this information correct?</h1>
-                <h2>#{homeBean.movieTitle}</h2>
+                <h2>#{homeBean.movieTitle} AT #{homeBean.selectedTime}</h2>
+                <h2>#{homeBean.numTickets} tickets for #{homeBean.name}</h2>
+                <h2>Under Credit Card: #{homeBean.creditCard}</h2>
+                
+                <h:commandButton id="Back" action="Checkout.xhtml" value="Back" />
+                <h:commandButton id="Finish" action="Payment.xhtml" value="Finish" />
             </ui:define>
             
             <ui:define name="bottom"/>

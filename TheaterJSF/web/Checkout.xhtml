@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
          <title>Checkout</title>
     </h:head>
@@ -17,15 +18,25 @@
 
             <ui:define name="content">
                 <h1>Checkout Information</h1>
-                <h2>#{param.movieID}</h2>
-                <h2>#{param.timeID}</h2>
+                <h2>For #{param.movieID} at #{param.timeID}</h2>
+                
+                <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
+                <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
                 
                 <h:form>
-                    <h:inputText maxlength="16" value="#{homeBean.creditCard}">
-                        <f:passThroughAttribute name="placeholder" value="Enter Credit Card Number" />
-                        <f:validator validatorId="beans.CCValidator" />
-                    </h:inputText>
-                    <h:commandButton id="CheckoutButton" action="Confirmation.xhtml" value="Next" />
+                    <div>
+                        <h:inputText maxlength="16" value="#{homeBean.creditCard}">
+                            <f:passThroughAttribute name="placeholder" value="Credit Card Number" />
+                            <f:validator validatorId="beans.CCValidator" />
+                        </h:inputText>
+                    </div>
+                    
+                    <div>
+                        <h:inputText value="#{homeBean.name}">
+                            <f:passThroughAttribute name="placeholder" value="Cardholder Name" />
+                        </h:inputText>
+                        <h:commandButton id="CheckoutButton" action="Confirmation.xhtml" value="Next" />
+                    </div>
                 </h:form>
                 
             </ui:define>

@@ -21,48 +21,63 @@
         <c:set target="#{homeBean}" property="theaterId" value="#{param.theID}" />
     </h:head>
     <h:body>
-        <f:view>
-            <h:form>
-                <h:dataTable styleClass="movies"
-                             value="#{homeBean.moviesList}" var="movie">
-                <h:column>
-                  <f:facet name="header">
-                    <h:outputText value="Title"/>
-                  </f:facet>
-                  <h:outputText value="#{movie.title}"/>
-                </h:column>
-                <h:column>
-                  <f:facet name="header">
-                    <h:outputText value="Poster"/>
-                  </f:facet>
-                <h:graphicImage url="#{movie.poster}" width="150" height="220" />
-                </h:column>
-                <h:column>
-                  <f:facet name="header">
-                    <h:outputText value="Plot"/>
-                  </f:facet>
-                  <h:outputText value="#{movie.plot}"/>
-                </h:column> 
-                
-                <h:column>
-                  <f:facet name="header">
-                    <h:outputText value="Times"/>
-                  </f:facet>
-                    <ul>
-                        <ui:repeat value="#{homeBean.getTimesList(movie.imdbId)}" var="times">
-                            <li>
-                                <h:link value="#{times}" outcome="Checkout.xhtml" style="color: #ffffff">
-                                    <f:param name="timeID" value="#{times}" />
-                                    <f:param name="movieID" value="#{movie.title}" />
-                                </h:link>
-                            </li>
-                        </ui:repeat>
-                    </ul>
-                </h:column>    
-                </h:dataTable>
-            </h:form>
+        <ui:composition template="./Template/TheaterTemplate.xhtml">
+            <ui:define name="top"/>
             
-        </f:view>
+            <ui:define name="left"/>
 
+            <ui:define name="content">
+                <f:view>
+                    <h:form>
+                        <h:dataTable styleClass="movies"
+                                     value="#{homeBean.moviesList}" var="movie">
+                        <h:column>
+                          <f:facet name="header">
+                            <h:outputText value="Title"/>
+                          </f:facet>
+                          <h:outputText value="#{movie.title}"/>
+                        </h:column>
+                        <h:column>
+                          <f:facet name="header">
+                            <h:outputText value="Poster"/>
+                          </f:facet>
+                        <h:graphicImage url="#{movie.poster}" width="150" height="220" />
+                        </h:column>
+                        <h:column>
+                          <f:facet name="header">
+                            <h:outputText value="Plot"/>
+                          </f:facet>
+                          <h:outputText value="#{movie.plot}"/>
+                        </h:column> 
+
+                        <h:column>
+                          <f:facet name="header">
+                            <h:outputText value="Times"/>
+                          </f:facet>
+                            <ul>
+                                <ui:repeat value="#{homeBean.getTimesList(movie.imdbId)}" var="times">
+                                    <li>
+                                        <h:link value="#{times}" outcome="Checkout.xhtml" style="color: #ffffff">
+                                            <f:param name="timeID" value="#{times}" />
+                                            <f:param name="movieID" value="#{movie.title}" />
+                                        </h:link>
+                                    </li>
+                                </ui:repeat>
+                            </ul>
+                        </h:column>
+
+                        </h:dataTable>
+                        <h:outputLink value="Checkout.xhtml">
+                                <f:param name="selectedTime" value="#{homeBean.selectedTime}" />
+                                <f:param name="selectedMovie" value="#{movie.imdbId}" />
+                            <h:outputLabel value="Checkout Information!"/>
+                        </h:outputLink>
+                    </h:form>
+
+                </f:view>
+            </ui:define>
+            
+            <ui:define name="bottom"/>
+        </ui:composition>
     </h:body>
 </html>

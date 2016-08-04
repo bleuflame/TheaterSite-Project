@@ -15,12 +15,9 @@ import entity.Checkout;
 import entity.Theater;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
 
 /**
  *
@@ -31,12 +28,15 @@ import javax.faces.context.FacesContext;
 public class HomeBean implements Serializable{
     @EJB
     private theaterEJB theaterEJB;
+    
     private Theater theater;
     private Checkout checkout;
     private Movie movie;
+    
     private String movieTitle;
     private String imdbID;
-    private String CreditCard;
+    private String creditCard;
+    private String name;
     private String numTickets;    
     private String selectedTime; 
     private String zip;
@@ -142,13 +142,21 @@ public class HomeBean implements Serializable{
     }
 
     public String getCreditCard() {
-        return CreditCard;
+        return creditCard;
     }
 
     public void setCreditCard(String CreditCard) {
-        this.CreditCard = CreditCard;
+        this.creditCard = CreditCard;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public String getNumTickets() {
         return numTickets;
     }
