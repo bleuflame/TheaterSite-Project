@@ -38,14 +38,6 @@ public class HomeBean{
     public HomeBean() {
     }
 
-    public theaterEJB getTheaterEJB() {
-        return theaterEJB;
-    }
-
-    public void setTheaterEJB(theaterEJB theaterEJB) {
-        this.theaterEJB = theaterEJB;
-    }
-
     public Theater getTheater() {
         return theater;
     }
@@ -53,6 +45,12 @@ public class HomeBean{
     public void setTheater(Theater theater) {
         this.theater = theater;
     }
+    
+    public String selectedTheater(Theater theater){
+        setTheater(theater);
+        return "Showtimes";
+    }
+    
 
     public String getZip() {
         return zip;
@@ -97,10 +95,16 @@ public class HomeBean{
     }
     
     public List<Movie> getMoviesList(){
-        if (zip != null)
-           return theaterEJB.getMovies(theaterId);
-        else
-           return null;
+        if (theater != null){
+            System.out.println("Movie list for " + theater.getTheaterId());
+           return theaterEJB.getMovies(theater.getTheaterId());
+        }
+        else{
+                        System.out.println("Movie list for " + "null");
+
+                       return null;
+
+        }
     }
     
     
