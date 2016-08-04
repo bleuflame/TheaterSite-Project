@@ -51,21 +51,15 @@
                     <ul>
                         <ui:repeat value="#{homeBean.getTimesList(movie.imdbId)}" var="times">
                             <li>
-                                <h:link value="#{times}" outcome="Checkout.xhtml">
+                                <h:link value="#{times}" outcome="Checkout.xhtml" style="color: #ffffff">
                                     <f:param name="timeID" value="#{times}" />
                                     <f:param name="movieID" value="#{movie.title}" />
                                 </h:link>
                             </li>
                         </ui:repeat>
                     </ul>
-                </h:column>
-                    
+                </h:column>    
                 </h:dataTable>
-                <h:outputLink value="Checkout.xhtml">
-                        <f:param name="selectedTime" value="#{homeBean.selectedTime}" />
-                        <f:param name="selectedMovie" value="#{movie.imdbId}" />
-                    <h:outputLabel value="Checkout Information!"/>
-                </h:outputLink>
             </h:form>
             
         </f:view>

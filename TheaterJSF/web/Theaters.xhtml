@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Theaters</title>
         <style type="text/css">
          table.theaters td {
              padding: 5px;
@@ -16,7 +16,7 @@
              background-color: #A4FFFF;    
              color: #BB0000;    
              border-bottom: 1px solid #000;
-         }   
+         }
         </style>
     
     </h:head>
@@ -26,9 +26,10 @@
             <ui:define name="left" />
             <ui:define name="content">
                 <h:form>
-                <h:outputLabel value="Theaters Near "/>
-                <h:outputText value="#{homeBean.zip}"/>
-                
+                <h2>
+                    Theaters Near
+                    <h:outputText value="#{homeBean.zip}"/>
+                </h2>
                 
                 <h:dataTable styleClass="theaters"
                              value="#{homeBean.theatersList}" var="theater">
@@ -36,7 +37,7 @@
                   <f:facet name="header">
                     <h:outputText value="Theater Name"/>
                   </f:facet>
-                    <h:outputLink value="Showtimes.xhtml">
+                    <h:outputLink value="Showtimes.xhtml" style="color: #ffffff">
                         <h:outputText value="#{theater.theater_name}"/>
                         <f:param name="theID" value="${theater.theaterId}" />
                     </h:outputLink>

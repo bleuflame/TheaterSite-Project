@@ -34,9 +34,14 @@ public class HomeBean implements Serializable{
     private Theater theater;
     private Checkout checkout;
     private Movie movie;
+    private String movieTitle;
+    private String imdbID;
+    private String CreditCard;
+    private String numTickets;    
+    private String selectedTime; 
     private String zip;
     private String theaterId;
-    private String selectedTime; 
+
     
     
     /**
@@ -118,6 +123,38 @@ public class HomeBean implements Serializable{
     public String copyMovie(Movie mov){
         this.movie = mov;
         return "Checkout.xhtml";
+    }
+
+    public String getMovieTitle() {
+        return movieTitle;
+    }
+
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
+    }
+
+    public String getImdbID() {
+        return imdbID;
+    }
+
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
+    }
+
+    public String getCreditCard() {
+        return CreditCard;
+    }
+
+    public void setCreditCard(String CreditCard) {
+        this.CreditCard = CreditCard;
+    }
+
+    public String getNumTickets() {
+        return numTickets;
+    }
+
+    public void setNumTickets(String numTickets) {
+        this.numTickets = numTickets;
     }
     
     

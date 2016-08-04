@@ -13,13 +13,11 @@
         <ui:composition template="./Template/TheaterTemplate.xhtml">
             <ui:define name="top"/>
             
-            <ui:define name="left">
-                <h:graphicImage value="Resources/images/WebsiteFlowChart.PNG" height="500" width="700"/>
-            </ui:define>
+            <ui:define name="left"/>
 
             <ui:define name="content">
-                <h1>Is this information correct</h1>
-                
+                <h1>Is this information correct?</h1>
+                <h2>#{homeBean.movieTitle}</h2>
             </ui:define>
             
             <ui:define name="bottom"/>

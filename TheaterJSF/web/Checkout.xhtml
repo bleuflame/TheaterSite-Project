@@ -17,11 +17,17 @@
 
             <ui:define name="content">
                 <h1>Checkout Information</h1>
+                <h2>#{param.movieID}</h2>
+                <h2>#{param.timeID}</h2>
+                
                 <h:form>
-                    
+                    <h:inputText maxlength="16" value="#{homeBean.creditCard}">
+                        <f:passThroughAttribute name="placeholder" value="Enter Credit Card Number" />
+                        <f:validator validatorId="beans.CCValidator" />
+                    </h:inputText>
+                    <h:commandButton id="CheckoutButton" action="Confirmation.xhtml" value="Next" />
                 </h:form>
-                #{param.timeID}
-                #{param.movieID}
+                
             </ui:define>
             
             <ui:define name="bottom"/>
