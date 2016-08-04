@@ -12,13 +12,12 @@
              text-align: left;
              font-family: Arial, Verdana, sans-serif;
              border: 1px solid #000; 
-             background-color: #A4FFFF;    
-             color: #BB0000;    
+             background-color: #404040;    
+             color: #faf320;    
              border-bottom: 1px solid #000;
          }   
         </style>
         <c:set target="#{homeBean}" property="theaterId" value="#{param.theID}" />
-            Theater ID you selected #{homeBean.theaterId}
     </h:head>
     <h:body>
         <f:view>
@@ -51,9 +50,9 @@
                   <h:selectOneMenu value="selectedTime">
                       <f:selectItems value="#{homeBean.getTimesList(movie.imdbId)}" />
                   </h:selectOneMenu>
-                     <h:commandButton value="Select Time"                                  
-                          action="Checkout.xhtml"> 
+                     <h:commandButton value="Select Time" action="Checkout.xhtml"> 
                         <f:param name="selectedTime" value="#{homeBean.selectedTime}" />
+                        <f:param name="selectedMovie" value="#{movie.imdbId}" />
                     </h:commandButton>
                 </h:column>     
                     
