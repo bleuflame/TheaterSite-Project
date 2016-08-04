@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 /**
- * Author:  JamesEich
+ * Author:  JamesEich, Kameron Freitag
  */
 
 DROP TABLE Theater;
@@ -25,8 +25,6 @@ create table Theater_Movies (
   constraint pkTheater_Movies primary key (imdbId, theaterId, movieTime),
   FOREIGN KEY (theaterId) REFERENCES Theater(theaterId)
 );
-
-
 
 
 insert into Theater (theater_name, zip, address, theaterId) 
