@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
         <style type="text/css">
@@ -36,9 +37,8 @@
                     <h:outputText value="Theater Name"/>
                   </f:facet>
                     <h:outputLink value="Showtimes.xhtml">
-                        
                         <h:outputText value="#{theater.theater_name}"/>
-                        <f:param name="theaterID" value="#{theater.theaterId}"/>
+                        <f:param name="theID" value="${theater.theaterId}" />
                     </h:outputLink>
                 </h:column>
                 <h:column>
