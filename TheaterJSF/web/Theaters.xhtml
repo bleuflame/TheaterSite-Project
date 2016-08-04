@@ -36,7 +36,9 @@
                     <h:outputText value="Theater Name"/>
                   </f:facet>
                     <h:outputLink value="Showtimes.xhtml">
+                        
                         <h:outputText value="#{theater.theater_name}"/>
+                        <f:param name="theaterID" value="#{theater.theaterId}"/>
                     </h:outputLink>
                 </h:column>
                 <h:column>

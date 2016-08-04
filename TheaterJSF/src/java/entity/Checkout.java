@@ -33,6 +33,7 @@ public class Checkout implements Serializable {
     private String tickets;
     private String movieTitle;
     private String movieTime;
+    private String theaterId;
 
     
     
@@ -82,6 +83,14 @@ public class Checkout implements Serializable {
 
     public void setMovieTime(String movieTime) {
         this.movieTime = movieTime;
+    }
+
+    public String getTheaterId() {
+        return theaterId;
+    }
+
+    public void setTheaterId(String theaterId) {
+        this.theaterId = theaterId;
     }
     
     @Override
