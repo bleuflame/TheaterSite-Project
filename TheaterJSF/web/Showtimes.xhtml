@@ -50,15 +50,20 @@
                   <h:selectOneMenu value="selectedTime">
                       <f:selectItems value="#{homeBean.getTimesList(movie.imdbId)}" />
                   </h:selectOneMenu>
-                     <h:commandButton value="Select Time" action="Checkout.xhtml"> 
-                        <f:param name="selectedTime" value="#{homeBean.selectedTime}" />
-                        <f:param name="selectedMovie" value="#{movie.imdbId}" />
-                    </h:commandButton>
-                </h:column>     
+                    <h:commandButton id="CheckoutButton" action="Checkout.xhtml" value="Select Time" />
+                        <f:param name="m.ovie.imdbId" value="#{movie.imdbId}" />
+
+                </h:column>
                     
                 </h:dataTable>
-
+                <h:outputLink value="Checkout.xhtml">
+                        <f:param name="selectedTime" value="#{homeBean.selectedTime}" />
+                        <f:param name="selectedMovie" value="#{movie.imdbId}" />
+                    <h:outputLabel value="Checkout Information!"/>
+                </h:outputLink>
             </h:form>
+            
         </f:view>
+
     </h:body>
 </html>
