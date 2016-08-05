@@ -18,10 +18,10 @@
 
             <ui:define name="content">
                 <h1>Checkout Information</h1>
-                <h2>For #{param.movieID} at #{param.timeID}</h2>
+                <h2>For #{param.movieID} #{homeBean.movieTitle} at #{param.timeID} #{homeBean.selectedTime}</h2>
+                
                 
                 <h:form>
-                    
                     <div>
                         <h:outputText value="Numver of Tickets: "/>
                         <h:inputText value="#{homeBean.numTickets}">
@@ -43,10 +43,7 @@
                             <f:passThroughAttribute name="placeholder" value="Cardholder Name" />
                         </h:inputText>
                     </div>
-                    <h:commandButton id="CheckoutButton" action="Confirmation.xhtml" value="Next">
-                        <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
-                        <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
-                    </h:commandButton>
+                    <h:commandButton id="CheckoutButton" action="Confirmation.xhtml" value="Next"/>
                      
                 </h:form>
                 

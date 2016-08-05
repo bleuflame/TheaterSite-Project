@@ -54,6 +54,8 @@
                                         <h:link value="#{times}" outcome="Checkout.xhtml" style="color: #ffffff">
                                             <f:param name="timeID" value="#{times}" />
                                             <f:param name="movieID" value="#{movie.title}" />
+                                            <c:set target="#{homeBean}" property="movieTitle" value="#{movie.title}" scope="session" />
+                                            <c:set target="#{homeBean}" property="selectedTime" value="#{times}" scope="session" />
                                         </h:link>
                                     </li>
                                 </ui:repeat>

@@ -11,7 +11,6 @@ package beans;
  */
 import XMLparsing.Movie;
 import ejb.theaterEJB;
-import entity.Checkout;
 import entity.Theater;
 import java.io.Serializable;
 import java.util.List;
@@ -30,8 +29,6 @@ public class HomeBean implements Serializable{
     private theaterEJB theaterEJB;
     
     private Theater theater;
-    private Checkout checkout;
-    private Movie movie;
     
     private String movieTitle;
     private String imdbID;
@@ -93,37 +90,7 @@ public class HomeBean implements Serializable{
     
     
     
-    //Checkout Object
-    public Checkout getCheckout() {
-        return checkout;
-    }
-
-    public void setCheckout(Checkout checkout) {
-        this.checkout = checkout;
-    }
-    
-    public String copyCheckout(Checkout ch){
-        this.checkout = ch;
-        return "Checkout.xhtml";
-    }
-
-    
-    
-    
-    
-    
-    //Movie Object
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-    public String copyMovie(Movie mov){
-        this.movie = mov;
-        return "Checkout.xhtml";
-    }
+   
 
     public String getMovieTitle() {
         return movieTitle;
