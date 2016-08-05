@@ -109,8 +109,7 @@ public class Movie {
     public void setImdbId(String imdbId) {
         this.imdbId = imdbId;
     }
-    
-    
+   
     
     
 }

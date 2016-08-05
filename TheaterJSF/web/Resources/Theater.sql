@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 /**
- * Author:  JamesEich, Kameron Freitag
+ * Author:  JamesEich
  */
 
 DROP TABLE Theater;
@@ -27,6 +27,8 @@ create table Theater_Movies (
 );
 
 
+
+
 insert into Theater (theater_name, zip, address, theaterId) 
 values (  'Sunnytown', '75080', '5050 Force Lane, Richardson, TX, ', '205');
 insert into Theater (theater_name, zip, address, theaterId) 
@@ -35,7 +37,7 @@ insert into Theater (theater_name, zip, address, theaterId)
 values (  'Cinemars', '75080', '909 Haunted Hill Avenue, Richardson, TX, ', '207');
 
 insert into Theater (theater_name, zip, address, theaterId) 
-values (  'Lighthouse Theafter', '75070', '404 Lost Lane, McKinney, TX, ', '208');
+values (  'Lighthouse Theater', '75070', '404 Lost Lane, McKinney, TX, ', '208');
 insert into Theater (theater_name, zip, address, theaterId) 
 values (  'Studio Movie Wok', '75070', '42 Meaning Street, McKinney TX, ', '209');
 
@@ -321,6 +323,62 @@ insert into Theater_Movies (imdbId, theaterId, movieTime)
 values ('tt3416828', '211', '10:45pm');
 
 
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '205', '1:35pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '206', '1:55pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '207', '1:35pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '208', '1:55pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '209', '1:55pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '210', '1:25pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '211', '4:35pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '205', '4:55pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '206', '4:25pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '207', '4:55pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '208', '4:25pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '209', '4:55pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '210', '4:25pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '211', '4:55pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '205', '7:25pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '206', '10:15pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '207', '10:30pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '208', '9:50pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '209', '9:05pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '210', '9:35pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '211', '11:05pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '205', '12:35am');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '206', '12:15am');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '207', '12:30am');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '208', '11:50pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '209', '12:05pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '210', '11:35pm');
+insert into Theater_Movies (imdbId, theaterId, movieTime) 
+values ('tt1289401', '211', '1:05am');
 
 
 

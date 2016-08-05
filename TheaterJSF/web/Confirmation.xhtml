@@ -25,7 +25,7 @@
                 
                 <h2>#{homeBean.movieTitle} AT #{homeBean.selectedTime}</h2>
                 <h2>#{homeBean.numTickets} ticket(s) for #{homeBean.name}</h2>
-                <h2>Under Credit Card: #{homeBean.creditCard}</h2>
+                <h2>#{homeBean.getPrice(homeBean.numTickets)} billed to Credit Card #{homeBean.creditCard}</h2>
                 
                 <h:form>
                     <h:commandButton id="Back" action="Checkout.xhtml" value="Back" />

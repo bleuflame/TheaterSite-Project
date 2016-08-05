@@ -21,12 +21,10 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("beans.ZipValidator")
 public class ZipValidator implements Validator{
 
-	private static final String ZIP_PATTERN = "\\d{5}\\b";
-	//private static final String CC_PATTERN = "\\d{16}\\b";
+	private static final String ZIP_PATTERN = "\\b\\d{5}\\b";
 
 	private Pattern pattern;
 	private Matcher matcher;
-	private String userInput;
         
 	public ZipValidator(){
 		  pattern = Pattern.compile(ZIP_PATTERN);
@@ -38,10 +36,6 @@ public class ZipValidator implements Validator{
 		
 		matcher = pattern.matcher(value.toString());
                 
-                
-                userInput = value.toString();
-                
-                
 		if((!matcher.matches())){
 			
                     FacesMessage msg = 
@@ -50,13 +44,7 @@ public class ZipValidator implements Validator{
 			throw new ValidatorException(msg);
 
 		}
-                /*if((dateSplit[0]>12) || (dateSplit[1] > 31) || (dateSplit[2] > Year.now().getValue()))
-                {
-                    FacesMessage msg = 
-                        new FacesMessage("Date does not exist.", "Invalid format.");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			throw new ValidatorException(msg);  
-                }*/
+
 
 	}
 }

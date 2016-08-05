@@ -21,12 +21,10 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("beans.CCValidator")
 public class CCValidator implements Validator{
 
-	//private static final String ZIP_PATTERN = "\\d{5}\\b";
-	private static final String CC_PATTERN = "\\d{16}\\b";
+	private static final String CC_PATTERN = "\\b\\d{16}\\b";
 
 	private Pattern pattern;
 	private Matcher matcher;
-	private String userInput;
         
 	public CCValidator(){
 		  pattern = Pattern.compile(CC_PATTERN);
@@ -37,10 +35,7 @@ public class CCValidator implements Validator{
 			Object value) throws ValidatorException {
 		
 		matcher = pattern.matcher(value.toString());
-                
-                
-                userInput = value.toString();
-                
+                                
                 
 		if((!matcher.matches())){
 			
@@ -50,13 +45,5 @@ public class CCValidator implements Validator{
 			throw new ValidatorException(msg);
 
 		}
-                /*if((dateSplit[0]>12) || (dateSplit[1] > 31) || (dateSplit[2] > Year.now().getValue()))
-                {
-                    FacesMessage msg = 
-                        new FacesMessage("Date does not exist.", "Invalid format.");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			throw new ValidatorException(msg);  
-                }*/
-
 	}
 }

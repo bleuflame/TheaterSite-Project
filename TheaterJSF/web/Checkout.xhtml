@@ -8,19 +8,11 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
          <title>Checkout</title>
-         <!-- 
-             This metadata lets us store the values of the parameters 
-                on the previous page into bean values for use later
-         -->
+
          <f:metadata>
             <f:viewParam name="movieID" value="#{homeBean.movieTitle}"/>
             <f:viewParam name="timeID" value="#{homeBean.selectedTime}"/>
          </f:metadata>
-         
-         <!-- This was our original method of storing the values in a bean but it didn't work 
-            <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
-            <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
-         -->
     </h:head>
    
     <h:body>
@@ -35,15 +27,16 @@
                 
                 <h:form>
                     <div>
-                        <h:outputText value="Numver of Tickets: "/>
-                        <h:inputText value="#{homeBean.numTickets}">
+                        <h:outputText value="Number of Tickets: "/>
+                        <h:inputText id="ticketBox" value="#{homeBean.numTickets}" required="true">
+                            <f:convertNumber integerOnly="true" />
                             <f:passThroughAttribute name="placeholder" value="Tickets" />
                         </h:inputText>
                     </div>
                     
                     <div>
                         <h:outputText value="Credit Card: "/>
-                        <h:inputText maxlength="16" value="#{homeBean.creditCard}">
+                        <h:inputText maxlength="16" value="#{homeBean.creditCard}" required="true">
                             <f:passThroughAttribute name="placeholder" value="Credit Card Number" />
                             <f:validator validatorId="beans.CCValidator" />
                         </h:inputText>
@@ -51,7 +44,7 @@
                     
                     <div>
                         <h:outputText value="Name: "/>
-                        <h:inputText value="#{homeBean.name}">
+                        <h:inputText value="#{homeBean.name}" required="true">
                             <f:passThroughAttribute name="placeholder" value="Cardholder Name" />
                         </h:inputText>
                     </div>

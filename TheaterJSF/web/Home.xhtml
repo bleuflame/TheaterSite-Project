@@ -28,7 +28,7 @@
                         the f:validator called beans.ZipValidator checks to 
                         make sure there are 5 characters and that all characters are numbers
                     -->    
-                    <h:inputText maxlength="5" value="#{homeBean.zip}">
+                    <h:inputText maxlength="5" value="#{homeBean.zip}" required="true">
                         <f:passThroughAttribute name="placeholder" value="Enter Zip Code" />
                         <f:validator validatorId="beans.ZipValidator" />
                     </h:inputText>

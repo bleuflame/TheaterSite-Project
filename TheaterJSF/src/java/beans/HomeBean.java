@@ -18,10 +18,7 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 
-/**
- *
- * @author JamesEich
- */
+
 @Named(value = "homeBean")
 @SessionScoped
 public class HomeBean implements Serializable{
@@ -39,8 +36,6 @@ public class HomeBean implements Serializable{
     private String selectedTime; 
     private String zip;
     private String theaterId;
-
-    
     
     /**
      * Creates a new instance of MainPageBean
@@ -57,10 +52,7 @@ public class HomeBean implements Serializable{
     }
     
     
-    
-    
-    
-    //Home.xhtml data
+    //Stores Zip data inputted by user in Home.xhtml 
     public String getZip() {
         return zip;
     }
@@ -68,8 +60,6 @@ public class HomeBean implements Serializable{
     public void setZip(String zip) {
         this.zip = zip;
     }
-    
-    
     
     
     
@@ -82,6 +72,7 @@ public class HomeBean implements Serializable{
         this.theater = theater;
     }
     
+    //Stores theaterId selected from Theaters.xhtml
     public String getTheaterId() {
         return theaterId;
     }
@@ -94,7 +85,7 @@ public class HomeBean implements Serializable{
     
     
     
-    //Showtimes.xhtml data
+    //Stores selected time selected from Showtimes.xhtml 
     public String getSelectedTime() {
         return selectedTime;
     }
@@ -107,7 +98,7 @@ public class HomeBean implements Serializable{
     
     
        
-    //Showtimes.xhtml data
+    //Stores selected movie title from Showtimes.xhtml 
     public String getMovieTitle() {
         return movieTitle;
     }
@@ -128,7 +119,7 @@ public class HomeBean implements Serializable{
     
     
     
-    //Checkout.xhtml data
+    //Stores credit card information from Checkout.xhtml 
     public String getCreditCard() {
         return creditCard;
     }
@@ -137,6 +128,7 @@ public class HomeBean implements Serializable{
         this.creditCard = CreditCard;
     }
 
+    //Stores name input from Checkout.xhtml
     public String getName() {
         return name;
     }
@@ -145,6 +137,7 @@ public class HomeBean implements Serializable{
         this.name = name;
     }
     
+    //Stores amount of tickets from Checkout.xhtml
     public String getNumTickets() {
         return numTickets;
     }
@@ -166,7 +159,7 @@ public class HomeBean implements Serializable{
            return null;
     }
     
-    //Returns a list of movies for showtimes.xhtml
+    //Returns the user selected theater's list of movies for showtimes.xhtml 
     public List<Movie> getMoviesList(){
         if (theaterId != null){
             System.out.println("Movie list for " + theaterId);
@@ -190,7 +183,7 @@ public class HomeBean implements Serializable{
         }
     }
     
-    
-    
-    
+    public String getPrice(int tic){
+        return "$" + (tic*10);
+    }
 }
