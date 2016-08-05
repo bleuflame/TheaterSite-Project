@@ -6,7 +6,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Movies for a theater</title>
+        <title>Showtimes</title>
         <style type="text/css">
          table.movies td {
              padding: 5px;
@@ -51,11 +51,9 @@
                             <ul>
                                 <ui:repeat value="#{homeBean.getTimesList(movie.imdbId)}" var="times">
                                     <li>
-                                        <h:link value="#{times}" outcome="Checkout.xhtml" style="color: #ffffff">
+                                        <h:link id="timeLink" value="#{times}" outcome="Checkout.xhtml" style="color: #ffffff">
                                             <f:param name="timeID" value="#{times}" />
                                             <f:param name="movieID" value="#{movie.title}" />
-                                            <c:set target="#{homeBean}" property="movieTitle" value="#{movie.title}" scope="session" />
-                                            <c:set target="#{homeBean}" property="selectedTime" value="#{times}" scope="session" />
                                         </h:link>
                                     </li>
                                 </ui:repeat>

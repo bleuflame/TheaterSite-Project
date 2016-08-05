@@ -8,6 +8,13 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
          <title>Checkout</title>
+         <f:metadata>
+            <f:viewParam name="movieID" value="#{homeBean.movieTitle}"/>
+            <f:viewParam name="timeID" value="#{homeBean.selectedTime}"/>
+         </f:metadata>
+         
+         <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
+         <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
     </h:head>
    
     <h:body>
@@ -18,8 +25,7 @@
 
             <ui:define name="content">
                 <h1>Checkout Information</h1>
-                <h2>For #{param.movieID} #{homeBean.movieTitle} at #{param.timeID} #{homeBean.selectedTime}</h2>
-                
+                <h2>For #{homeBean.movieTitle} at #{homeBean.selectedTime}</h2>
                 
                 <h:form>
                     <div>
