@@ -13,13 +13,17 @@
         <ui:composition template="./Template/TheaterTemplate.xhtml">
             <ui:define name="top"/>
             
-            <ui:define name="left">
-                <h:graphicImage value="Resources/images/WebsiteFlowChart.PNG" height="500" width="700"/>
-            </ui:define>
+            <ui:define name="left"/>
 
             <ui:define name="content">
-                <h1>Payment</h1>
+                <h1>Payment Received</h1>
+                Thanks you for your patronage!
+                We eagerly await your visit at Sunnymart Theaters.
+                Have a sunny day!
                 
+                <h:form>
+                    <h:commandButton id="End" action="Home.xhtml" value="Home" />
+                </h:form>
             </ui:define>
             
             <ui:define name="bottom"/>

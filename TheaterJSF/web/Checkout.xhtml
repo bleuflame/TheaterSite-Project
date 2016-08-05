@@ -20,11 +20,17 @@
                 <h1>Checkout Information</h1>
                 <h2>For #{param.movieID} at #{param.timeID}</h2>
                 
-                <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
-                <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
-                
                 <h:form>
+                    
                     <div>
+                        <h:outputText value="Numver of Tickets: "/>
+                        <h:inputText value="#{homeBean.numTickets}">
+                            <f:passThroughAttribute name="placeholder" value="Tickets" />
+                        </h:inputText>
+                    </div>
+                    
+                    <div>
+                        <h:outputText value="Credit Card: "/>
                         <h:inputText maxlength="16" value="#{homeBean.creditCard}">
                             <f:passThroughAttribute name="placeholder" value="Credit Card Number" />
                             <f:validator validatorId="beans.CCValidator" />
@@ -32,11 +38,16 @@
                     </div>
                     
                     <div>
+                        <h:outputText value="Name: "/>
                         <h:inputText value="#{homeBean.name}">
                             <f:passThroughAttribute name="placeholder" value="Cardholder Name" />
                         </h:inputText>
-                        <h:commandButton id="CheckoutButton" action="Confirmation.xhtml" value="Next" />
                     </div>
+                    <h:commandButton id="CheckoutButton" action="Confirmation.xhtml" value="Next">
+                        <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
+                        <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
+                    </h:commandButton>
+                     
                 </h:form>
                 
             </ui:define>
