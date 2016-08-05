@@ -6,6 +6,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
+        <!-- Here we define what we want our table to look like -->
         <title>Showtimes</title>
         <style type="text/css">
          table.movies td {
@@ -23,6 +24,12 @@
     <h:body>
                 <f:view>
                     <h:form>
+                        <!-- 
+                            Here we give our data table a list of movies from our bean
+                            This bean pulls data from our database to populate the list
+                            It uses a query in the bean to determine the qualifying factor for what tuples will go in the data table
+                            We choose which attributes we want to display from these tuples
+                        -->
                         <h:dataTable styleClass="movies"
                                      value="#{homeBean.moviesList}" var="movie">
                         <h:column>
@@ -48,9 +55,20 @@
                           <f:facet name="header">
                             <h:outputText value="Times"/>
                           </f:facet>
+                            <!-- 
+                                Here we create a ui:repeat component that will repeat itself for each item in a list
+                                This is useful for displaying the movie times for each movie in a theater
+                                Thus we pass it the movie ID for each movie as our theater has already been selected
+                            -->
                             <ul>
                                 <ui:repeat value="#{homeBean.getTimesList(movie.imdbId)}" var="times">
                                     <li>
+                                        <!-- 
+                                            Each time in the list becomes a link which 
+                                                passes the current movie selected 
+                                                and the time clicked on as parameters for the next page
+                                            This data is utilized to help the user confirm their choice
+                                         -->
                                         <h:link id="timeLink" value="#{times}" outcome="Checkout.xhtml" style="color: #ffffff">
                                             <f:param name="timeID" value="#{times}" />
                                             <f:param name="movieID" value="#{movie.title}" />

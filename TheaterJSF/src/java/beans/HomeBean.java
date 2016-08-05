@@ -30,6 +30,7 @@ public class HomeBean implements Serializable{
     
     private Theater theater;
     
+    //This is a list of all the values we utilize throughout the JSF pages for storage recollection of data
     private String movieTitle;
     private String imdbID;
     private String creditCard;
@@ -46,7 +47,7 @@ public class HomeBean implements Serializable{
      */
     public HomeBean() {
     }
-
+    
     public theaterEJB getTheaterEJB() {
         return theaterEJB;
     }
@@ -54,15 +55,12 @@ public class HomeBean implements Serializable{
     public void setTheaterEJB(theaterEJB theaterEJB) {
         this.theaterEJB = theaterEJB;
     }
-
-    public Theater getTheater() {
-        return theater;
-    }
-
-    public void setTheater(Theater theater) {
-        this.theater = theater;
-    }
-
+    
+    
+    
+    
+    
+    //Home.xhtml data
     public String getZip() {
         return zip;
     }
@@ -70,7 +68,20 @@ public class HomeBean implements Serializable{
     public void setZip(String zip) {
         this.zip = zip;
     }
+    
+    
+    
+    
+    
+    //Theaters.xhtml data
+    public Theater getTheater() {
+        return theater;
+    }
 
+    public void setTheater(Theater theater) {
+        this.theater = theater;
+    }
+    
     public String getTheaterId() {
         return theaterId;
     }
@@ -78,7 +89,12 @@ public class HomeBean implements Serializable{
     public void setTheaterId(String theaterId) {
         this.theaterId = theaterId;
     }
-
+    
+    
+    
+    
+    
+    //Showtimes.xhtml data
     public String getSelectedTime() {
         return selectedTime;
     }
@@ -90,8 +106,8 @@ public class HomeBean implements Serializable{
     
     
     
-   
-
+       
+    //Showtimes.xhtml data
     public String getMovieTitle() {
         return movieTitle;
     }
@@ -107,7 +123,12 @@ public class HomeBean implements Serializable{
     public void setImdbID(String imdbID) {
         this.imdbID = imdbID;
     }
-
+    
+    
+    
+    
+    
+    //Checkout.xhtml data
     public String getCreditCard() {
         return creditCard;
     }
@@ -134,18 +155,6 @@ public class HomeBean implements Serializable{
     
     
     
-    
-    
-    
-    
-
-    
-    
-    public String addZip(String zip){
-        this.zip = zip;
-        return "Theaters.xhtml";
-    }
-    
     //Fetches the theaters with the user given zip code
     public List<Theater> getTheatersList()
     {
@@ -157,6 +166,7 @@ public class HomeBean implements Serializable{
            return null;
     }
     
+    //Returns a list of movies for showtimes.xhtml
     public List<Movie> getMoviesList(){
         if (theaterId != null){
             System.out.println("Movie list for " + theaterId);
@@ -168,6 +178,7 @@ public class HomeBean implements Serializable{
         }
     }
     
+    //Return a list of movie times for Showtimes.xhtml to display
     public List<String> getTimesList(String imdbId){
         if ((theaterId != null)&&(imdbId != null)){
             System.out.println("Movie times for movie " + imdbId + " at " + theaterId);

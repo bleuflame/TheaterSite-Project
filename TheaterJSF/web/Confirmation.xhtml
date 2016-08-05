@@ -16,6 +16,11 @@
             <ui:define name="left"/>
 
             <ui:define name="content">
+                 <!-- 
+                    Using the metadata from the previous page we can populate movieTitle and selected
+                    The home bean gets the number of tickets, the cardholder name, and the credit card number
+                        from the input text boxes on the last page and displays them for confirmation
+                -->
                 <h1>Is this information correct?</h1>
                 
                 <h2>#{homeBean.movieTitle} AT #{homeBean.selectedTime}</h2>

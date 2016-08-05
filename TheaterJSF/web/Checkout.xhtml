@@ -8,13 +8,19 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
          <title>Checkout</title>
+         <!-- 
+             This metadata lets us store the values of the parameters 
+                on the previous page into bean values for use later
+         -->
          <f:metadata>
             <f:viewParam name="movieID" value="#{homeBean.movieTitle}"/>
             <f:viewParam name="timeID" value="#{homeBean.selectedTime}"/>
          </f:metadata>
          
-         <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
-         <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
+         <!-- This was our original method of storing the values in a bean but it didn't work 
+            <c:set target="#{homeBean}" property="movieTitle" value="#{param.movieID}" />
+            <c:set target="#{homeBean}" property="selectedTime" value="#{param.timeID}" />
+         -->
     </h:head>
    
     <h:body>

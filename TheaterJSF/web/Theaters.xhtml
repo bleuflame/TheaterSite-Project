@@ -7,6 +7,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Theaters</title>
+        <!-- Here we define what we want our table to look like -->
         <style type="text/css">
          table.theaters td {
              padding: 5px;
@@ -23,13 +24,21 @@
     <h:body>
         <ui:composition template="./Template/TheaterTemplate.xhtml">
             <ui:define name="top"/>
+            
             <ui:define name="left" />
+            
             <ui:define name="content">
                 <h:form>
                 <h2>
                     Theaters Near <h:outputText value="#{homeBean.zip}"/>
                 </h2>
                 
+                <!-- 
+                    Here we give our data table a list of theaters from our bean
+                    This bean pulls data from our database to populate the list
+                    It uses a query in the bean to determine the qualifying factor for what tuples will go in the data table
+                    We choose which attributes we want to display from these tuples
+                -->
                 <h:dataTable styleClass="theaters"
                              value="#{homeBean.theatersList}" var="theater">
                 <h:column>
@@ -37,6 +46,10 @@
                     <h:outputText value="Theater Name"/>
                   </f:facet>
                     <h:outputLink value="Showtimes.xhtml" style="color: #ffffff">
+                        <!-- 
+                            The theater name is the link, 
+                            click on it and it passes the theaterID in a parameter to the next page 
+                        -->
                         <h:outputText value="#{theater.theater_name}"/>
                         <f:param name="theID" value="${theater.theaterId}" />
                     </h:outputLink>
