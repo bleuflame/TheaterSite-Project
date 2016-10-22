@@ -1,5 +1,5 @@
 # TheaterSite-Project
-This was a project for my Advanced Java course in which our team decided to use GitHub for collaborations. 
+This was a group project for an Advanced Java course in which our team decided to use GitHub for collaborations. 
 
 
 Project Guidelines. 
